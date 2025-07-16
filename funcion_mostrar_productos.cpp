@@ -1,10 +1,20 @@
 void mostrarProductos() {
-	cout << "------LISTA DE PRODUCTOS----- \n";
+    cout << "------LISTA DE PRODUCTOS----- \n";
     ifstream archivo("productos.txt");
-    string linea;
+    Producto prod;
 
-    while (getline(archivo, linea)) {
-        cout << linea << endl;
+    while (archivo >> prod.id) {
+        archivo.ignore(); 
+        getline(archivo, prod.nombre, ',');
+        getline(archivo, prod.categoria, ',');
+        archivo >> prod.precio;
+        archivo.ignore(); 
+
+        cout << "ID: " << prod.id << endl;
+        cout << "Nombre: " << prod.nombre << endl;
+        cout << "Categoría: " << prod.categoria << endl;
+        cout << "Precio: " << prod.precio << endl;
+        cout << "---------------------------\n";
     }
 
     archivo.close();
