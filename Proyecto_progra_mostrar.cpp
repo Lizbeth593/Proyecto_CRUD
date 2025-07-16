@@ -1,3 +1,5 @@
+//NO ESTA YA NO VALE :( 
+
 void mostrarProductos() {
 	cout << "------LISTA DE PRODUCTOS----- \n";
     ifstream archivo("productos.txt");
